@@ -1,0 +1,23 @@
+{
+  "name": "babel-plugin-nice-react-component-name",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc && terser --compress --mangle --output lib/index.js -- lib/index.js",
+    "test": "jest tests",
+    "format": "prettier --write {src,tests}"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/jest": "^27.0.1",
+    "jest": "^27.1.0",
+    "prettier": "^2.3.2",
+    "terser": "^5.7.2",
+    "typescript": "^4.4.2"
+  }
+}
