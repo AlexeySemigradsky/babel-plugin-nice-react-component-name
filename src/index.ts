@@ -44,7 +44,17 @@ function NiceReactComponentName({ types }: typeof babel) {
           return;
         }
 
-        if (!["React.memo", "memo", "observer"].includes(calleeName)) {
+        if (
+          ![
+            // React
+            "React.memo",
+            "memo",
+            // MobX
+            "observer",
+            // NinjaX
+            "isolate",
+          ].includes(calleeName)
+        ) {
           return;
         }
 
