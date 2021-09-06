@@ -6,11 +6,16 @@ function NiceReactComponentName({ types }: typeof babel) {
       ArrowFunctionExpression(
         path: babel.NodePath<babel.types.ArrowFunctionExpression>
       ) {
+        const arrowFunctionExpression = path;
         if (!path.isArrowFunctionExpression()) {
           return;
         }
 
-        const callExpression = path.parentPath;
+        const assignmentExpression = path.parentPath;
+
+        const callExpression = assignmentExpression.isAssignmentExpression()
+          ? assignmentExpression.parentPath
+          : arrowFunctionExpression.parentPath;
         if (!callExpression.isCallExpression()) {
           return;
         }
